@@ -1,0 +1,971 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172033;
+    background: #ffffff;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    min-height: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 6%;
+
+    background: #ffffff;
+
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.logo-area img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+
+.brand-name h2 {
+    font-size: 15px;
+    color: #182033;
+    letter-spacing: 0.5px;
+}
+
+
+.brand-name span {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 2px;
+}
+
+
+.navbar nav {
+    display: flex;
+    gap: 22px;
+}
+
+
+.navbar nav a {
+    text-decoration: none;
+    color: #263044;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.navbar nav a:hover {
+    color: #651fff;
+}
+
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+
+.login-btn,
+.admission-btn {
+    text-decoration: none;
+    padding: 11px 17px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+.login-btn {
+    color: #651fff;
+    border: 1px solid #651fff;
+}
+
+
+.admission-btn {
+    background: #651fff;
+    color: white;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 70px 8%;
+
+    background: linear-gradient(
+        135deg,
+        #f7f9ff,
+        #ffffff
+    );
+}
+
+
+.hero-content {
+    max-width: 650px;
+}
+
+
+.established {
+    color: #651fff;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+
+.hero h1 {
+    font-size: 55px;
+    line-height: 1.1;
+    color: #151c2c;
+}
+
+
+.hero h1 span {
+    display: block;
+    color: #651fff;
+}
+
+
+.hero h3 {
+    margin-top: 20px;
+
+    font-size: 25px;
+
+    color: #00a8c6;
+}
+
+
+.hero-text {
+    margin-top: 20px;
+
+    max-width: 550px;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #596273;
+}
+
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+
+.primary-btn,
+.secondary-btn {
+    text-decoration: none;
+
+    padding: 14px 25px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+
+.primary-btn {
+    background: #651fff;
+    color: white;
+}
+
+
+.secondary-btn {
+    border: 2px solid #651fff;
+    color: #651fff;
+}
+
+
+.hero-logo {
+    width: 390px;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.hero-logo img {
+    width: 100%;
+    max-width: 380px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    margin-bottom: 50px;
+}
+
+
+.section-title p,
+.section-label {
+    color: #651fff;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+}
+
+
+.section-title h2 {
+    font-size: 36px;
+
+    color: #172033;
+}
+
+
+/* =========================
+   WHY US
+========================= */
+
+.why-us {
+    padding: 90px 8%;
+}
+
+
+.feature-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+.feature-card {
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    background: white;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.07);
+
+    transition: 0.3s;
+}
+
+
+.feature-card:hover {
+    transform: translateY(-7px);
+}
+
+
+.feature-icon {
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+
+.feature-card h3 {
+    margin-bottom: 12px;
+}
+
+
+.feature-card p {
+    color: #667085;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    display: flex;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding: 90px 8%;
+
+    background: #f7f8fc;
+}
+
+
+.about-image {
+    width: 45%;
+
+    text-align: center;
+}
+
+
+.about-image img {
+    width: 80%;
+    max-width: 400px;
+}
+
+
+.about-content {
+    width: 55%;
+}
+
+
+.about-content h2 {
+    font-size: 38px;
+
+    margin-bottom: 20px;
+}
+
+
+.about-content > p {
+    color: #606a7b;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+}
+
+
+.about-stats {
+    display: flex;
+
+    gap: 50px;
+
+    margin-top: 30px;
+}
+
+
+.about-stats div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.about-stats strong {
+    font-size: 25px;
+
+    color: #651fff;
+}
+
+
+.about-stats span {
+    color: #667085;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   COURSES
+========================= */
+
+.courses {
+    padding: 90px 8%;
+}
+
+
+.course-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.course-card {
+    padding: 35px;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    border: 1px solid #eeeeee;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+
+.course-card span {
+    font-size: 14px;
+
+    color: #651fff;
+
+    font-weight: bold;
+}
+
+
+.course-card h3 {
+    font-size: 24px;
+
+    margin: 20px 0 12px;
+}
+
+
+.course-card p {
+    color: #667085;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}
+
+
+.course-card a {
+    color: #651fff;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+    margin: 40px 8% 80px;
+
+    padding: 50px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #172033;
+
+    color: white;
+}
+
+
+.cta p {
+    color: #b9c0ce;
+
+    margin-bottom: 8px;
+}
+
+
+.cta h2 {
+    font-size: 28px;
+}
+
+
+.cta-btn {
+    text-decoration: none;
+
+    padding: 14px 25px;
+
+    border-radius: 8px;
+
+    background: #651fff;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111827;
+
+    color: white;
+
+    padding: 60px 8% 20px;
+}
+
+
+.footer-content {
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap: 50px;
+
+    padding-bottom: 40px;
+}
+
+
+.footer-content h3 {
+    font-size: 20px;
+}
+
+
+.footer-content p {
+    color: #aeb5c2;
+
+    margin-top: 8px;
+}
+
+
+.footer-content span {
+    display: block;
+
+    margin-top: 15px;
+
+    color: #00cfe8;
+}
+
+
+.footer-content h4 {
+    margin-bottom: 15px;
+}
+
+
+.footer-content a {
+    display: block;
+
+    text-decoration: none;
+
+    color: #aeb5c2;
+
+    margin: 10px 0;
+}
+
+
+.copyright {
+    text-align: center;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #293143;
+
+    color: #8f98a8;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   ADMISSION FORM & UPLOAD
+========================= */
+
+.photo-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.photo-box {
+    width: 120px;
+    height: 140px;
+    border: 2px dashed #651fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+    background: #fdfdfd;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.photo-box:hover {
+    background: #f0ebff;
+    border-color: #4b00d1;
+}
+
+.upload-btn {
+    background: #651fff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.upload-btn:hover {
+    background: #4b00d1;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 800px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-logo {
+        margin-top: 40px;
+    }
+
+    .feature-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .about-image,
+    .about-content {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .about-stats {
+        justify-content: center;
+    }
+
+    .course-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .cta {
+        flex-direction: column;
+
+        gap: 25px;
+
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 10px 4%;
+    }
+
+    .brand-name {
+        display: none;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero h3 {
+        font-size: 20px;
+    }
+
+    .hero-logo {
+        width: 280px;
+    }
+
+    .feature-container,
+    .course-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        padding: 70px 5%;
+    }
+
+    .about-content h2 {
+        font-size: 30px;
+    }
+
+    .about-stats {
+        gap: 25px;
+    }
+
+    .cta {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   LOGO HOVER ANIMATION
+========================= */
+
+.logo-area img, 
+.hero-logo img, 
+.about-image img {
+    transition: transform 0.4s ease, filter 0.4s ease;
+    cursor: pointer;
+}
+
+.logo-area img:hover {
+    transform: scale(1.1) rotate(-5deg);
+    filter: drop-shadow(0px 4px 8px rgba(101, 31, 255, 0.4));
+}
+
+.hero-logo img:hover, 
+.about-image img:hover {
+    transform: scale(1.06) translateY(-6px);
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.2));
+}
+/* ==========================================
+   MIXED BUBBLE ANIMATION (FLOATING + RAINDROP)
+========================================== */
+
+/* Hero Base Styling */
+.hero {
+    position: relative;
+    background-color: #f4f7ff;
+    overflow: hidden;
+}
+
+/* Ensure Text & Logo Stay Above Background */
+.hero-content, 
+.hero-logo {
+    position: relative;
+    z-index: 5;
+}
+
+/* Background Container */
+.bubbles-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Common Bubble Styling */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+/* ----------------------------------
+   1. FLOATING BUBBLES (ঘোরাফেরা করবে)
+----------------------------------- */
+.float-1 {
+    width: 28px;
+    height: 28px;
+    background: #ff4757; /* লাল */
+    top: 25%;
+    left: 8%;
+    animation: moveAround1 12s ease-in-out infinite alternate;
+}
+
+.float-2 {
+    width: 22px;
+    height: 22px;
+    background: #3742fa; /* নীল */
+    top: 18%;
+    right: 12%;
+    animation: moveAround2 14s ease-in-out infinite alternate;
+}
+
+.float-3 {
+    width: 32px;
+    height: 32px;
+    background: #ffa502; /* হলুদ/কমলা */
+    top: 50%;
+    right: 8%;
+    animation: moveAround1 16s ease-in-out infinite alternate;
+}
+
+.float-4 {
+    width: 24px;
+    height: 24px;
+    background: #2ed573; /* সবুজ */
+    bottom: 20%;
+    left: 12%;
+    animation: moveAround2 11s ease-in-out infinite alternate;
+}
+
+.float-5 {
+    width: 30px;
+    height: 30px;
+    background: #1e90ff; /* আকাশী নীল */
+    bottom: 15%;
+    right: 25%;
+    animation: moveAround1 15s ease-in-out infinite alternate;
+}
+
+/* ----------------------------------
+   2. RAINDROP BUBBLES (উপর থেকে ঝরবে)
+----------------------------------- */
+.rain-bubble {
+    top: -35px;
+    animation: bubbleRainfall linear infinite;
+}
+
+.rain-1 {
+    width: 20px;
+    height: 20px;
+    background: #3742fa; /* নীল */
+    left: 18%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+}
+
+.rain-2 {
+    width: 26px;
+    height: 26px;
+    background: #ff4757; /* লাল */
+    left: 38%;
+    animation-duration: 10s;
+    animation-delay: 2s;
+}
+
+.rain-3 {
+    width: 18px;
+    height: 18px;
+    background: #2ed573; /* সবুজ */
+    left: 60%;
+    animation-duration: 7s;
+    animation-delay: 4s;
+}
+
+.rain-4 {
+    width: 25px;
+    height: 25px;
+    background: #ffa502; /* অরেঞ্জ */
+    left: 78%;
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+
+.rain-5 {
+    width: 16px;
+    height: 16px;
+    background: #ff6b81; /* পিংক */
+    left: 92%;
+    animation-duration: 6.5s;
+    animation-delay: 3s;
+}
+
+/* ----------------------------------
+   ANIMATION KEYFRAMES
+----------------------------------- */
+
+/* চারদিকে ঘোরার অ্যানিমেশন ১ */
+@keyframes moveAround1 {
+    0% { transform: translate(0px, 0px) scale(1); }
+    25% { transform: translate(30px, -40px) scale(1.1); }
+    50% { transform: translate(-25px, 35px) scale(0.9); }
+    75% { transform: translate(40px, 20px) scale(1.05); }
+    100% { transform: translate(-30px, -20px) scale(1); }
+}
+
+/* চারদিকে ঘোরার অ্যানিমেশন ২ */
+@keyframes moveAround2 {
+    0% { transform: translate(0px, 0px) scale(1); }
+    30% { transform: translate(-35px, 25px) scale(0.95); }
+    60% { transform: translate(25px, -30px) scale(1.08); }
+    80% { transform: translate(-20px, -25px) scale(1); }
+    100% { transform: translate(30px, 35px) scale(0.9); }
+}
+
+/* ওপর থেকে ঝরে পড়ার অ্যানিমেশন */
+@keyframes bubbleRainfall {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    20% { opacity: 0.7; }
+    80% { opacity: 0.7; }
+    100% {
+        transform: translateY(105vh);
+        opacity: 0;
+    }
+}
