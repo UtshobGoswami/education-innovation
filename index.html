@@ -57,7 +57,6 @@
 
 <body>
 
-    <!-- Navigation Bar -->
     <header class="navbar">
 
         <a href="index.html" class="logo-area" style="text-decoration: none; color: inherit;">
@@ -68,7 +67,9 @@
             </div>
         </a>
 
-        <nav>
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle Navigation">☰</button>
+
+        <nav id="nav-menu">
             <a href="index.html">Home</a>
             <a href="index.html#about">About</a>
             <a href="courses.html">Courses</a>
@@ -93,10 +94,8 @@
     </header>
 
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
 
-        <!-- Mixed Bubbles Background (Floating + Raindrop) -->
         <div class="bubbles-background">
             <div class="bubble float-bubble float-1"></div>
             <div class="bubble float-bubble float-2"></div>
@@ -155,7 +154,6 @@
     </section>
 
 
-    <!-- Why Choose Us -->
     <section class="why-us">
 
         <div class="section-title">
@@ -247,7 +245,6 @@
     </section>
 
 
-    <!-- About Section -->
     <section class="about" id="about">
 
         <div class="about-image">
@@ -303,7 +300,6 @@
     </section>
 
 
-    <!-- Courses -->
     <section class="courses" id="courses">
 
         <div class="section-title">
@@ -383,7 +379,6 @@
     </section>
 
 
-    <!-- CTA -->
     <section class="cta">
 
         <div>
@@ -405,7 +400,6 @@
     </section>
 
 
-    <!-- Footer -->
     <footer id="contact">
 
         <div class="footer-content">
@@ -444,7 +438,6 @@
             </div>
 
 
-            <!-- Updated & Styled Contact Section -->
             <div>
 
                 <h4>
@@ -496,15 +489,25 @@
 
     <script src="js/script.js"></script>
 
-    <!-- Student Session Check Script -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Hamburger Menu Toggle
+            const hamburgerBtn = document.getElementById("hamburger-btn");
+            const navMenu = document.getElementById("nav-menu");
+
+            if (hamburgerBtn && navMenu) {
+                hamburgerBtn.addEventListener("click", function () {
+                    navMenu.classList.toggle("active");
+                });
+            }
+
+            // Student Session Check
             const studentRoll = localStorage.getItem("studentRoll");
             const navLoginBtn = document.getElementById("nav-login-btn");
             const heroLoginBtn = document.getElementById("hero-login-btn");
 
             if (studentRoll) {
-                // Navbar-এর My Dashboard
+                // Navbar-er My Dashboard
                 if (navLoginBtn) {
                     navLoginBtn.innerText = "👨‍🎓 My Dashboard";
                     navLoginBtn.href = "student-dashboard.html";
@@ -524,7 +527,7 @@
                     });
                 }
 
-                // Hero Section-এর My Dashboard
+                // Hero Section-er My Dashboard
                 if (heroLoginBtn) {
                     heroLoginBtn.innerText = "👨‍🎓 My Dashboard";
                     heroLoginBtn.href = "student-dashboard.html";
