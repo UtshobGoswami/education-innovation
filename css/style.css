@@ -113,6 +113,17 @@ body {
     color: white;
 }
 
+/* Hamburger Button (Default hidden for PC) */
+.hamburger-menu {
+    display: none;
+    font-size: 28px;
+    background: transparent;
+    border: none;
+    color: #172033;
+    cursor: pointer;
+    outline: none;
+}
+
 
 /* =========================
    HERO
@@ -661,13 +672,38 @@ footer {
 
 @media (max-width: 1000px) {
 
+    .hamburger-menu {
+        display: block; /* মোবাইলে হ্যামবার্গার আইকন শো করবে */
+    }
+
     .navbar nav {
-        display: none;
+        display: none; /* ডিফল্টভাবে মেনু লুকানো থাকবে */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        z-index: 999;
+        gap: 15px;
+    }
+
+    /* JavaScript দিয়ে active ক্লাস এলে মেনু ভেসে উঠবে */
+    .navbar nav.active {
+        display: flex;
+    }
+
+    .navbar nav a {
+        padding: 10px 30px;
+        font-size: 16px;
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0;
     }
 
     .hero {
         flex-direction: column;
-
         text-align: center;
     }
 
@@ -684,8 +720,7 @@ footer {
     }
 
     .feature-container {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .about {
@@ -695,7 +730,6 @@ footer {
     .about-image,
     .about-content {
         width: 100%;
-
         text-align: center;
     }
 
@@ -704,15 +738,12 @@ footer {
     }
 
     .course-container {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .cta {
         flex-direction: column;
-
         gap: 25px;
-
         text-align: center;
     }
 }
@@ -721,15 +752,23 @@ footer {
 @media (max-width: 600px) {
 
     .navbar {
-        padding: 10px 4%;
+        padding: 10px 5%;
     }
 
     .brand-name {
-        display: none;
+        display: block; /* ব্র্যান্ডের নাম মোবাইলেও দেখতে সুন্দর লাগবে */
+    }
+
+    .brand-name h2 {
+        font-size: 13px;
+    }
+
+    .brand-name span {
+        font-size: 9px;
     }
 
     .nav-buttons {
-        display: none;
+        display: none; /* স্পেস বাঁচাতে মোবাইলে টপ বাটন লুকানো */
     }
 
     .hero {
@@ -737,15 +776,15 @@ footer {
     }
 
     .hero h1 {
-        font-size: 38px;
+        font-size: 36px;
     }
 
     .hero h3 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .hero-logo {
-        width: 280px;
+        width: 250px;
     }
 
     .feature-container,
@@ -758,16 +797,17 @@ footer {
     }
 
     .about-content h2 {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .about-stats {
-        gap: 25px;
+        gap: 20px;
     }
 
     .cta {
         margin-left: 5%;
         margin-right: 5%;
+        padding: 35px 20px;
     }
 
     .footer-content {
@@ -797,6 +837,7 @@ footer {
     transform: scale(1.06) translateY(-6px);
     filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.2));
 }
+
 /* ==========================================
    MIXED BUBBLE ANIMATION (FLOATING + RAINDROP)
 ========================================== */
@@ -834,12 +875,12 @@ footer {
 }
 
 /* ----------------------------------
-   1. FLOATING BUBBLES (ঘোরাফেরা করবে)
+   1. FLOATING BUBBLES
 ----------------------------------- */
 .float-1 {
     width: 28px;
     height: 28px;
-    background: #ff4757; /* লাল */
+    background: #ff4757;
     top: 25%;
     left: 8%;
     animation: moveAround1 12s ease-in-out infinite alternate;
@@ -848,7 +889,7 @@ footer {
 .float-2 {
     width: 22px;
     height: 22px;
-    background: #3742fa; /* নীল */
+    background: #3742fa;
     top: 18%;
     right: 12%;
     animation: moveAround2 14s ease-in-out infinite alternate;
@@ -857,7 +898,7 @@ footer {
 .float-3 {
     width: 32px;
     height: 32px;
-    background: #ffa502; /* হলুদ/কমলা */
+    background: #ffa502;
     top: 50%;
     right: 8%;
     animation: moveAround1 16s ease-in-out infinite alternate;
@@ -866,7 +907,7 @@ footer {
 .float-4 {
     width: 24px;
     height: 24px;
-    background: #2ed573; /* সবুজ */
+    background: #2ed573;
     bottom: 20%;
     left: 12%;
     animation: moveAround2 11s ease-in-out infinite alternate;
@@ -875,14 +916,14 @@ footer {
 .float-5 {
     width: 30px;
     height: 30px;
-    background: #1e90ff; /* আকাশী নীল */
+    background: #1e90ff;
     bottom: 15%;
     right: 25%;
     animation: moveAround1 15s ease-in-out infinite alternate;
 }
 
 /* ----------------------------------
-   2. RAINDROP BUBBLES (উপর থেকে ঝরবে)
+   2. RAINDROP BUBBLES
 ----------------------------------- */
 .rain-bubble {
     top: -35px;
@@ -892,7 +933,7 @@ footer {
 .rain-1 {
     width: 20px;
     height: 20px;
-    background: #3742fa; /* নীল */
+    background: #3742fa;
     left: 18%;
     animation-duration: 8s;
     animation-delay: 0s;
@@ -901,7 +942,7 @@ footer {
 .rain-2 {
     width: 26px;
     height: 26px;
-    background: #ff4757; /* লাল */
+    background: #ff4757;
     left: 38%;
     animation-duration: 10s;
     animation-delay: 2s;
@@ -910,7 +951,7 @@ footer {
 .rain-3 {
     width: 18px;
     height: 18px;
-    background: #2ed573; /* সবুজ */
+    background: #2ed573;
     left: 60%;
     animation-duration: 7s;
     animation-delay: 4s;
@@ -919,7 +960,7 @@ footer {
 .rain-4 {
     width: 25px;
     height: 25px;
-    background: #ffa502; /* অরেঞ্জ */
+    background: #ffa502;
     left: 78%;
     animation-duration: 9s;
     animation-delay: 1s;
@@ -928,7 +969,7 @@ footer {
 .rain-5 {
     width: 16px;
     height: 16px;
-    background: #ff6b81; /* পিংক */
+    background: #ff6b81;
     left: 92%;
     animation-duration: 6.5s;
     animation-delay: 3s;
@@ -938,7 +979,6 @@ footer {
    ANIMATION KEYFRAMES
 ----------------------------------- */
 
-/* চারদিকে ঘোরার অ্যানিমেশন ১ */
 @keyframes moveAround1 {
     0% { transform: translate(0px, 0px) scale(1); }
     25% { transform: translate(30px, -40px) scale(1.1); }
@@ -947,7 +987,6 @@ footer {
     100% { transform: translate(-30px, -20px) scale(1); }
 }
 
-/* চারদিকে ঘোরার অ্যানিমেশন ২ */
 @keyframes moveAround2 {
     0% { transform: translate(0px, 0px) scale(1); }
     30% { transform: translate(-35px, 25px) scale(0.95); }
@@ -956,7 +995,6 @@ footer {
     100% { transform: translate(30px, 35px) scale(0.9); }
 }
 
-/* ওপর থেকে ঝরে পড়ার অ্যানিমেশন */
 @keyframes bubbleRainfall {
     0% {
         transform: translateY(-20px);
