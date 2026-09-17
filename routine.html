@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routine - Education Innovation Tuition Centre</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Table Dynamic Styling */
+        .routine-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .routine-table th {
+            padding: 14px 12px;
+            background-color: #f8f9fe;
+            color: #172033;
+            border-bottom: 2px solid #651fff;
+            font-size: 15px;
+        }
+
+        .routine-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .routine-table tbody tr:hover {
+            background-color: #f4f7ff;
+        }
+
+        .loading-text {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo-area" style="text-decoration: none; color: inherit;">
+            <img src="images/logo.png" alt="Education Innovation Tuition Centre Logo">
+            <div class="brand-name">
+                <h2>EDUCATION INNOVATION</h2>
+                <span>TUITION CENTRE</span>
+            </div>
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="teachers.html">Teachers</a>
+            <a href="routine.html" class="active">Routine</a>
+            <a href="notice.html">Notice</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+        <div class="nav-buttons">
+            <a href="student-login.html" class="login-btn">Student Login</a>
+            <a href="admission.html" class="admission-btn">Admission</a>
+        </div>
+    </header>
+
+    <section class="courses" style="padding-top: 50px; min-height: 70vh;">
+        <div class="section-title">
+            <p>CLASS SCHEDULE</p>
+            <h2>Weekly Routine Overview</h2>
+        </div>
+
+        <div style="max-width: 950px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow-x: auto;">
+            <table class="routine-table">
+                <thead>
+                    <tr>
+                        <th>Batch</th>
+                        <th>Day / Days</th>
+                        <th>Time</th>
+                        <th>Subject</th>
+                        <th>Teacher / Room</th>
+                    </tr>
+                </thead>
+                <tbody id="overallRoutineBody">
+                    <tr>
+                        <td colspan="5" class="loading-text">Loading overall routine schedule...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <div class="copyright">
+            © 2026 Education Innovation Tuition Centre. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwbTiNq62O-CgFMHPXGDpjl047iZBODbEXmn5gB_yPauHaILKVyy9JK2D2SL3JIuBqqvQ/exec";
+
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchAllRoutines();
+        });
+
+        function fetchAllRoutines() {
+            const tableBody = document.getElementById("overallRoutineBody");
+            const url = `${SCRIPT_URL}?action=getAllRoutine`;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    tableBody.innerHTML = "";
+                    const routines = res.data || [];
+
+                    if (res.status === "success" && routines.length > 0) {
+                        routines.forEach(item => {
+                            const teacherRoomInfo = [item.teacher, item.room].filter(Boolean).join(" | ") || "-";
+                            
+                            const row = `
+                                <tr>
+                                    <td style="font-weight: bold; color: #1e1e38;">${item.batch || item.batchName || '-'}</td>
+                                    <td>${item.day || item.days || '-'}</td>
+                                    <td>${item.time || '-'}</td>
+                                    <td>${item.subject || '-'}</td>
+                                    <td>${teacherRoomInfo}</td>
+                                </tr>
+                            `;
+                            tableBody.innerHTML += row;
+                        });
+                    } else {
+                        tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding: 20px;">No routine records available right now.</td></tr>`;
+                    }
+                })
+                .catch(err => {
+                    console.error("Routine fetch error:", err);
+                    tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:red; padding: 20px;">Failed to load routine. Please check your internet connection or try again later.</td></tr>`;
+                });
+        }
+    </script>
+</body>
+
+</html>
